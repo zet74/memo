@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Benevole{% endblock %}
+
+{% block body %}
+    <h1>Benevole</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ benevole.id }}</td>
+            </tr>
+            <tr>
+                <th>DateOfEntry</th>
+                <td>{{ benevole.dateOfEntry ? benevole.dateOfEntry|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('benevole_index') }}">back to list</a>
+
+    <a href="{{ path('benevole_edit', {'id': benevole.id}) }}">edit</a>
+
+    {{ include('benevole/_delete_form.html.twig') }}
+{% endblock %}
